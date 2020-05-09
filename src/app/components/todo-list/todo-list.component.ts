@@ -27,6 +27,7 @@ export class TodoListComponent implements OnInit {
 
   addTodo(todo: Todo) {
     this.todoService.addTodo(todo).subscribe(todo => {
+      todo.id = this.todos[this.todos.length - 1].id + 1;
       this.todos.push(todo)
     })
   }

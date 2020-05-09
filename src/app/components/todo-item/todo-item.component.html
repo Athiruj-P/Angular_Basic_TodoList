@@ -1,6 +1,6 @@
 <div [ngClass]="setClass()" class="list-group-item list-group-item-action">
     <div class="d-flex align-items-center">
-        <input (change) = "onToggle(todo)" class="p-2" type="checkbox">
+        <input (change) = "onToggle(todo)" class="p-2" type="checkbox" [checked]="todo.completed">
         <p class="p-2 mb-0 ml-2">{{todo.title}}</p>
         <button (click) = "onDelete(todo)" type="button" class="btn btn-danger ml-auto">X</button>
     </div>
