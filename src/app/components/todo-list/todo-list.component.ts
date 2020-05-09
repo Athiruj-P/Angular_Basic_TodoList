@@ -9,7 +9,7 @@ import { TodoService } from '../../services/todo.service'
 })
 export class TodoListComponent implements OnInit {
   todos: Todo[];
-  constructor(private todoService : TodoService) { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit(): void {
     this.todoService.getTodos().subscribe(todos => {
@@ -17,12 +17,18 @@ export class TodoListComponent implements OnInit {
     });
   }
 
-  deleteTodo(todo:Todo){
+  deleteTodo(todo: Todo) {
     // Remove an item from UI
     this.todos = this.todos.filter(item => item.id !== todo.id);
 
     // Remove an item from server
     this.todoService.deleteTodo(todo).subscribe();
+  }
+
+  addTodo(todo: Todo) {
+    this.todoService.addTodo(todo).subscribe(todo => {
+      this.todos.push(todo)
+    })
   }
 
 }

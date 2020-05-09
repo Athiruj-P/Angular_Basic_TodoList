@@ -1,1 +1,4 @@
-<p>add-todo works!</p>
+<form class="form d-flex justify" (ngSubmit)="onSubmit()">
+    <input style="flex-grow:9;" type="text" name="title" [(ngModel)]="title" placeholder="Add todo...">
+    <input style="flex-grow: 1;" type="submit" value="Submit" class="btn btn-primary">
+</form>
