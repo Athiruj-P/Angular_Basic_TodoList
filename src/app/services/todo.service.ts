@@ -13,10 +13,11 @@ const httpOptions = {
 })
 export class TodoService {
   todosUrl: string = 'https://jsonplaceholder.typicode.com/todos';
+  todosLimit = '?_limit=10';
   constructor(private http: HttpClient) { }
 
   getTodos(): Observable<Todo[]> {
-    return this.http.get<Todo[]>(this.todosUrl);
+    return this.http.get<Todo[]>(`${this.todosUrl}${this.todosLimit}`);
   }
 
   toggleCompleted(todo: Todo): Observable<any> {
